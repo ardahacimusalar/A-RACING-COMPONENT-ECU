@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-Line Task 2.2: Ghost Protocol</title>
+    <title>Paketler | A-RACING Systems</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="logo" style="font-size: 1.2rem;">
+            A-RACING <span>COMPONENT & ECU</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="index.html#services">AR-GE Çözümleri</a></li>
+            <li><a href="team.html">Ekibimiz</a></li> 
+            <li><a href="task2.html" class="cta-btn active">Paketler</a></li>
+        </ul>
+    </nav>
 
     <div class="main-container">
 
@@ -23,22 +36,32 @@
                     <h3>Street (Stage 1)</h3>
                     <div class="price-box">
                         <span class="currency">€</span>
-                        <span class="amount">5.000</span>
+                        <span class="amount">200</span>
                         <span class="period">/işlem</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li>Yazılım Güncelleme</li>
+                        <li>ECU Remapping</li>
+                        <li>Şanzıman Yazılımı Güncelleme</li>
                         <li>Hava Filtresi Değişimi</li>
                         <li>Arıza Tespiti</li>
+                        <li>1 Yıl Yazılım Garantisi</li>
                         <li class="disabled">Dyno Testi Yok</li>
-                        <li class="disabled">Parça Değişimi Yok</li>
+                        <li class="disabled">Intercooler Büyütme Yok</li>
                         <li class="disabled">Pist Desteği Yok</li>
+                        <li class="disabled">Egzoz Sistemi (Downpipe) Yok</li>
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn">Detaylar</a>
+                    <button class="btn toggle-btn" onclick="toggleSocials(this)">İletişime Geç</button>
+                    
+                    <div class="social-dropdown" style="display: none;">
+                        <a href="https://www.instagram.com/ardahacimusalar/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ardahacimusalar/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:ardahacimusalar@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/ardahacimusalar" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -49,55 +72,173 @@
                     <h3>Sport (Stage 2)</h3>
                     <div class="price-box">
                         <span class="currency">€</span>
-                        <span class="amount">15.000</span>
-                        <span class="period">/işlem</span>
+                        <span class="amount">1.100</span>
+                        <span class="period">/proje</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <ul>
-                        <li>Custom ECU Remap</li>
+                        <li>ECU Remapping</li>
+                        <li>Şanzıman Yazılımı Güncelleme</li>
                         <li>Egzoz Sistemi (Downpipe)</li>
-                        <li>Intercooler Büyütme</li>
-                        <li>Dyno Testi Dahil</li>
+                        <li>Hybrit Turbo</li>
+                        <li>Hava Filtresi Değişimi</li>
+                        <li>Arıza Tespiti</li>
                         <li>1 Yıl Yazılım Garantisi</li>
+                        <li>Dyno Testi</li>
+                        <li>Intercooler Büyütme</li>
+                        <li>Değer Okuma Saatleri</li>
                         <li class="disabled">Pist Desteği Yok</li>
+                        
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Randevu Al</a>
+                    <button class="btn btn-primary toggle-btn" onclick="toggleSocials(this)">İletişime Geç</button>
+                    
+                    <div class="social-dropdown" style="display: none;">
+                        <a href="https://www.instagram.com/ardahacimusalar/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ardahacimusalar/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:ardahacimusalar@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/ardahacimusalar" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h3>Track (Stage 3)</h3>
+        <div class="card"> <div class="card-header">
+                    <h3>Ready 2 Track (Stage 4)</h3>
                     <div class="price-box">
                         <span class="currency">€</span>
                         <span class="amount">45.000</span>
                         <span class="period">/proje</span>
                     </div>
                 </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Hibrit Turbo Setup</li>
-                        <li>Forged Motor İçi</li>
-                        <li>Metanol Kiti</li>
-                        <li>Sınırsız Dyno Saati</li>
-                        <li>Pist Günü Teknik Destek</li>
-                        <li>Özel Karbon Parçalar</li>
-                    </ul>
+                
+                <div class="accordion-container">
+                    
+                    <button class="acc-btn">🧠 Elektronik & Kontrol</button>
+                    <div class="acc-panel">
+                        <ul>
+                            <li>Bağımsız ECU (MoTeC/Haltech)</li>
+                            <li>Traction & Launch Control</li>
+                            <li>Data Logging + Telemetry</li>
+                            <li>EGT, AFR, Knock Analizi</li>
+                        </ul>
+                    </div>
+
+                    <button class="acc-btn">❄️ Soğutma</button>
+                    <div class="acc-panel">
+                        <ul>
+                            <li>Büyük Alüminyum Radyatör</li>
+                            <li>Oil Cooler (Yağ Soğutucu)</li>
+                            <li>Şanzıman & Dif. Soğutucu</li>
+                            <li>Isı Kalkanları (Turbo/Motor)</li>
+                        </ul>
+                    </div>
+
+                    <button class="acc-btn">⚙️ Aktarma & Dayanıklılık</button>
+                    <div class="acc-panel">
+                        <ul>
+                            <li>Limited Slip Differential (LSD)</li>
+                            <li>Güçlendirilmiş Akslar & CV</li>
+                            <li>Racing Clutch + Hafif Volan</li>
+                            <li>Solid Motor & Şanzıman Kulakları</li>
+                        </ul>
+                    </div>
+
+                    <button class="acc-btn">🧱 Şasi & Güvenlik</button>
+                    <div class="acc-panel">
+                        <ul>
+                            <li>Seam Welding (Şasi Kaynak Güçlendirme)</li>
+                            <li>Strut Bar (Ön + Arka)</li>
+                            <li>Yangın Söndürme (FIA Onaylı)</li>
+                            <li>6 Nokta Kemer + Bucket Koltuk</li>
+                            <li>Kill Switch (Elektrik Kesici)</li>
+                        </ul>
+                    </div>
+
+                    <button class="acc-btn">🛞 Ayar & Geometri</button>
+                    <div class="acc-panel">
+                        <ul>
+                            <li>Ayarlanabilir Camber Plate</li>
+                            <li>Corner Balance (Ağırlık)</li>
+                            <li>Profesyonel Pist Alignment</li>
+                        </ul>
+                    </div>
+
+                    <button class="acc-btn">⛽ Yakıt Sistemi</button>
+                    <div class="acc-panel">
+                        <ul>
+                            <li>Yüksek Basınç Pompası (belki 2X)</li>
+                            <li>Büyük Enjektörler</li>
+                            <li>Ethanol Uyumlu Sistem (E0 dan 100e)</li>
+                        </ul>
+                    </div>
+
+                    <button class="acc-btn">🧪 Test & Dayanıklılık</button>
+                    <div class="acc-panel">
+                        <ul>
+                            <li>Uzun Stint Pist Testleri</li>
+                            <li>Isı Dayanıklılık Testleri</li>
+                            <li>Parça Ömrü Takibi</li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn">İletişime Geç</a>
+                    <button class="btn toggle-btn" onclick="toggleSocials(this)">İletişime Geç</button>
+                    
+                    <div class="social-dropdown" style="display: none;">
+                        <a href="https://www.instagram.com/ardahacimusalar/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ardahacimusalar/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:ardahacimusalar@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/ardahacimusalar" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
             </div>
-
-        </div> 
         
         <div class="back-link">
             <a href="index.html">← Ana Sayfaya Dön</a>
         </div>
 
     </div> 
+
+    <script>
+        // 1. SOSYAL MEDYA BUTONU İÇİN FONKSİYON
+        function toggleSocials(btn) {
+            var dropdown = btn.nextElementSibling;
+            
+            if (dropdown.style.display === "none") {
+                dropdown.style.display = "flex";
+                btn.textContent = "Kapat"; 
+            } else {
+                dropdown.style.display = "none";
+                btn.textContent = "İletişime Geç"; 
+            }
+        }
+
+        // LİSTE AÇMA/KAPAMA FONKSİYONU (Stage 4 İçin)
+        // Sayfadaki tüm "acc-btn" sınıfına sahip butonları buluyoruz
+        var acc = document.getElementsByClassName("acc-btn");
+        var i;
+
+        // Her bir butona tıklama özelliği ekliyoruz
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                /* Tıklanan butona "active" sınıfı ekle (Rengi değişsin, + işareti - olsun) */
+                this.classList.toggle("active");
+
+                /* Hemen altındaki paneli (gizli listeyi) bul */
+                var panel = this.nextElementSibling;
+                
+                /* Eğer açıksa kapat, kapalıysa aç */
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null; // Kapat
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px"; // İçerik kadar aç
+                } 
+            });
+        }
+    </script>
+
 </body>
 </html>
