@@ -37,15 +37,15 @@ Tasarım Mimarisi: Mobile-First, Flexbox & Grid Layouts
 
 📂 Proje Yapısı
 Plaintext
-├── assets/                  # (Opsiyonel) Resim ve ikon dosyaları
+├── assets/
 │   ├── motor.png
 │   ├── arda-profil.png
 │   └── sertifika.png
-├── index.html               # Ana Sayfa (Landing Page - Hero & Services)
-├── team.html                # Ekip Sayfası (3D Flip Cards & Slide Effects)
-├── task2.html               # Paketler & Fiyatlandırma (Accordion System)
-├── style.css                # Tüm stillerin ve animasyonların bulunduğu merkezi stil dosyası
-└── README.md                # Proje dokümantasyonu
+├── index.html
+├── team.html
+├── task2.html
+├── style.css
+└── README.md
 
 💻 Sayfa Detayları ve Mühendislik Yaklaşımı
 1. Ana Sayfa (index.html)
