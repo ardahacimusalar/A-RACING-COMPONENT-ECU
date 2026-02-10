@@ -69,7 +69,7 @@ Bu proje statik web teknolojileri ile geliştirildiği için herhangi bir derley
 Projeyi Klonlayın:
 
 Bash
-git clone https://github.com/kullaniciadi/a-racing-web.git
+git clone https://github.com/ardahacimusalar/A-RACING-COMPONENT-ECU.git
 Çalıştırın: Klasör içerisindeki index.html dosyasına çift tıklayarak tarayıcınızda açmanız yeterlidir.
 
 👨‍💻 Geliştirici
