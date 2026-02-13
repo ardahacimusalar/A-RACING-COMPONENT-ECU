@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akıllı Fiyatlandırma | A-RACING</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dynamic-section {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .free-price {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        /* Sonuç Kutusu İçi Sosyal Medya Ayarları */
+        .result-socials {
+            display: none; /* Başlangıçta gizli */
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            animation: slideDown 0.3s ease-out;
+        }
+        .result-socials a {
+            color: #ccc;
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+        .result-socials a:hover {
+            color: #e74c3c;
+            transform: scale(1.2);
+            text-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+        }
+
+        /* Animasyon */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" style="font-size: 1.2rem;">
+            A-RACING <span>COMPONENT & ECU</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="index.html#services">AR-GE Çözümleri</a></li>
+            <li><a href="team.html">Ekibimiz</a></li> 
+            <li><a href="task2.html">Paketler</a></li>
+            <li><a href="teklif.html" class="cta-btn active">Teklif Al</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+
+        <header class="page-header">
+            <h1>Proje Maliyet Hesaplama</h1>
+            <p>Aracınız için en doğru konfigürasyonu oluşturun.</p>
+        </header>
+
+        <div class="calculator-wrapper">
+            
+            <div class="calculator-box">
+                <form id="quoteForm">
+
+                    <div class="form-group">
+                        <label for="brandSelect"><i class="fas fa-car-side"></i> Araç Markası</label>
+                        <select id="brandSelect" class="form-control">
+                            <option value="" disabled selected hidden>Marka Seçiniz...</option>
+                            <option value="Alfa Romeo">Alfa Romeo</option>
+                            <option value="Audi">Audi</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Citroen">Citroën</option>
+                            <option value="Dacia">Dacia</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Mercedes">Mercedes-Benz</option>
+                            <option value="Mini">Mini</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Opel">Opel</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Seat">Seat</option>
+                            <option value="Skoda">Skoda</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="Diğer">Diğer / Listede Yok</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="engineSize"><i class="fas fa-filter"></i> Motor Hacmi</label>
+                        <select id="engineSize" class="form-control">
+                            <option value="1">0cc - 1001cc</option>
+                            <option value="1">1001cc - 1301cc</option>
+                            <option value="1">1301cc - 1599cc</option>
+                            <option value="1">1599cc - 2000cc</option>
+                            <option value="1">2000cc - 3000cc</option>
+                            <option value="1">3000cc - 9999cc</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="packageSelect"><i class="fas fa-tachometer-alt"></i> Hedeflenen Güç (Stage)</label>
+                        <select id="packageSelect" class="form-control" onchange="updateOptions()">
+                            <option value="0" disabled selected hidden>Lütfen bir seviye seçiniz...</option>
+                            <option value="200">Stage 1: Street (Yazılım Odaklı) - 200 €</option>
+                            <option value="1100">Stage 2: Sport (Donanım + Yazılım) - 1.100 €</option>
+                            <option value="45000">Stage 4: Track (Pist Projesi) - 45.000 €</option>
+                        </select>
+                    </div>
+
+                    <div id="dynamicOptionsArea" class="dynamic-section"></div>
+
+                    <button type="button" id="calculateBtn" class="btn-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 20px;">
+                        MALİYET HESAPLA
+                    </button>
+
+                </form>
+            </div>
+
+            <div class="result-box" id="resultBox" style="display: none;">
+                <h3>Tahmini Proje Bütçesi</h3>
+                <div class="final-price">
+                    <span id="priceValue">0</span> <span class="currency">€</span>
+                </div>
+                <p id="resultText" style="font-size: 0.9rem; color: #ccc;">
+                    *Seçilen opsiyonlara göre hesaplanmıştır.
+                </p>
+                
+                <button id="toggleSocialBtn" class="btn-primary" style="margin-top: 15px; border:none; cursor: pointer; width: 100%;" onclick="toggleResultSocials()">
+                    Randevu ve Detaylar
+                </button>
+
+                <div class="result-socials" id="socialArea">
+                    <a href="https://www.instagram.com/ardahacimusalar/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/ardahacimusalar/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:ardahacimusalar@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/ardahacimusalar" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="back-link">
+            <a href="index.html">← Ana Sayfaya Dön</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Arda HACIMUSALAR.</p>
+    </footer>
+
+    <script>
+        // DOM Elemanları
+        const packageSelect = document.getElementById('packageSelect');
+        const dynamicArea = document.getElementById('dynamicOptionsArea');
+        const btn = document.getElementById('calculateBtn');
+        const resultBox = document.getElementById('resultBox');
+        const priceDisplay = document.getElementById('priceValue');
+
+        // Opsiyonlar (Fiyatları güncellendi)
+        const standardOptions = `
+            <div class="form-group">
+                <label><i class="fas fa-plus-circle"></i> Ekstra Yazılım Özellikleri</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="0">
+                    <label>Popcorn (Patlatma) <span class="free-price">(+0 €)</span></label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="0">
+                    <label>Hız Limiti İptali (Vmax) <span class="free-price">(+0 €)</span></label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="0">
+                    <label>AdBlue / DPF / EGR İptali <span class="free-price">(+0 €)</span></label>
+                </div>
+            </div>
+        `;
+
+        const stage1Extras = `
+            <div class="form-group">
+                <label><i class="fas fa-arrow-up"></i> Stage 2'ye Hazırlık (Donanım)</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="250">
+                    <label>Downpipe (Katalizör İptali) (+250 €)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="100">
+                    <label>Kutu İçi Performans Filtresi (+100 €)</label>
+                </div>
+            </div>
+        `;
+
+        const stage2Extras = `
+            <div class="form-group">
+                <label><i class="fas fa-cogs"></i> İleri Seviye Güçlendirme</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="400">
+                    <label>Intercooler (10.5L - 13L) (+400 €)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="1200">
+                    <label>Hybrid Turbo Setup (+1.200 €)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" class="calc-option" value="600">
+                    <label>Methanol Kit (AEM V3) (+600 €)</label>
+                </div>
+            </div>
+        `;
+
+        const stage4Extras = `
+            <div class="form-group">
+                <label for="customRequest"><i class="fas fa-pen"></i> Proje Detayları & Hedefler</label>
+                <p style="font-size: 0.8rem; color: #aaa; margin-bottom:10px;">
+                    Track projeleri butik bir çalışmadır. Lütfen hedeflediğiniz pist süresini ve mevcut mekanik durumunuzu belirtin.
+                </p>
+                <textarea id="customRequest" class="form-control" placeholder="Örn: İstanbul Park 2.10 altı hedefliyorum. Roll cage ve forged motor işlemi için detaylı bilgi istiyorum..."></textarea>
+            </div>
+        `;
+
+        function updateOptions() {
+            const val = parseInt(packageSelect.value);
+            let content = "";
+
+            if (val === 200) { 
+                content = standardOptions + stage1Extras;
+            } else if (val === 1100) { 
+                content = standardOptions + stage2Extras;
+            } else if (val === 45000) { 
+                content = stage4Extras;
+            }
+            dynamicArea.innerHTML = content;
+        }
+
+        // HESAPLAMA BUTONU
+        btn.addEventListener('click', function() {
+            let basePrice = parseFloat(packageSelect.value);
+            if (isNaN(basePrice)) {
+                alert("Lütfen önce bir Tuning Paketi seçiniz!");
+                return;
+            }
+
+            const brand = document.getElementById('brandSelect').value;
+            if (brand === "") {
+                alert("Lütfen aracınızın markasını seçiniz.");
+                return;
+            }
+
+            let currentTotal = basePrice;
+            const activeOptions = document.querySelectorAll('.calc-option');
+            activeOptions.forEach(opt => {
+                if(opt.checked) {
+                    currentTotal += parseFloat(opt.value);
+                }
+            });
+
+            priceDisplay.textContent = Math.round(currentTotal).toLocaleString('tr-TR');
+            resultBox.style.display = 'block';
+            
+            // Eğer daha önce açıldıysa ve kapatıldıysa resetle
+            const socialArea = document.getElementById('socialArea');
+            const socialBtn = document.getElementById('toggleSocialBtn');
+            socialArea.style.display = 'none';
+            socialBtn.textContent = 'Randevu ve Detaylar';
+            socialBtn.style.backgroundColor = '#e74c3c';
+            socialBtn.style.color = '#fff';
+
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // SOSYAL MEDYA AÇ/KAPA FONKSİYONU
+        function toggleResultSocials() {
+            const socialArea = document.getElementById('socialArea');
+            const socialBtn = document.getElementById('toggleSocialBtn');
+
+            if (socialArea.style.display === "flex") {
+                // Kapatma İşlemi
+                socialArea.style.display = "none";
+                socialBtn.textContent = "Randevu ve Detaylar";
+                
+                // Butonu eski haline getir
+                socialBtn.style.backgroundColor = "#e74c3c";
+                socialBtn.style.color = "#fff";
+            } else {
+                // Açma İşlemi
+                socialArea.style.display = "flex";
+                socialBtn.textContent = "Kapat";
+                
+                // Butonu beyaz/siyah yap (Task2 stilinde)
+                socialBtn.style.backgroundColor = "#fff";
+                socialBtn.style.color = "#000";
+            }
+        }
+    </script>
+
+</body>
+</html>
