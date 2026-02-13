@@ -17,7 +17,8 @@
             <li><a href="index.html" class="active">Ana Sayfa</a></li>
             <li><a href="#services">AR-GE Çözümleri</a></li>
             <li><a href="team.html">Ekibimiz</a></li> 
-            <li><a href="task2.html" class="cta-btn">Paketler</a></li>
+            <li><a href="task2.html">Paketler</a></li>
+            <li><a href="teklif.html" class="cta-btn">Teklif Al</a></li>
         </ul>
     </nav>
 
@@ -58,6 +59,48 @@
         <a href="task2.html" class="footer-link">Paket Fiyatlarını Gör ></a>
     </footer>
 
+    <div class="floating-btn" onclick="toggleWidget()">
+        <i class="fas fa-bolt"></i>
+        <span class="notification-dot"></span>
+    </div>
+
+    <div class="floating-box" id="offerWidget">
+        <div class="widget-header">
+            <h4>Canavarını Uyandır! 🏎️</h4>
+            <span class="close-btn" onclick="toggleWidget()">&times;</span>
+        </div>
+        <div class="widget-body">
+            <p>Aracının gizli gücünü ortaya çıkarmaya hazır mısın?</p>
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 5px;">
+                Sana özel Stage veya Track paketlerini kişiselleştir ve hemen hesapla.
+            </p>
+            <a href="teklif.html" class="btn-widget">Fiyatı Gör ></a>
+        </div>
+    </div>
+
+    <script>
+        function toggleWidget() {
+            var box = document.getElementById("offerWidget");
+            var btn = document.querySelector(".floating-btn");
+
+            if (box.style.display === "block") {
+                box.style.display = "none";
+                btn.innerHTML = '<i class="fas fa-bolt"></i><span class="notification-dot"></span>'; // Şimşek ikonu geri gelir
+            } else {
+                box.style.display = "block";
+                btn.innerHTML = '<i class="fas fa-times"></i>'; // Çarpı işareti olur
+            }
+        }
+        
+        // Sayfa açıldıktan 2 saniye sonra otomatik açılsın
+        setTimeout(function() {
+            var box = document.getElementById("offerWidget");
+            // Eğer kullanıcı henüz açmadıysa otomatik aç
+            if(box.style.display !== "block") {
+                toggleWidget();
+            }
+        }, 1500);
+    </script>
+
 </body>
 </html>
-
