@@ -20,6 +20,12 @@
             <li><a href="team.html">Ekibimiz</a></li> 
             <li><a href="task2.html" class="active">Paketler</a></li>
             <li><a href="teklif.html" class="cta-btn">Teklif Al</a></li>
+            <li class="theme-switch-wrapper" style="display: flex; align-items: center; margin-left: 15px;">
+            <label class="theme-switch" for="theme-slider">
+            <input type="checkbox" id="theme-slider">
+            <div class="slider round"></div>
+            </label>
+            </li>
         </ul>
     </nav>
 
@@ -241,5 +247,29 @@
         }
     </script>
 
+    <script>
+        // Sayfa yüklendiğinde LocalStorage'dan temayı kontrol et
+        const currentTheme = localStorage.getItem('theme');
+        const toggleSwitch = document.getElementById('theme-slider');
+
+        // Eğer hafızada 'light' kayıtlıysa aydınlık modu aktif et
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-mode');
+            if (toggleSwitch) toggleSwitch.checked = true;
+        }
+
+        // Butona tıklandığında temayı değiştir ve hafızaya kaydet
+        if (toggleSwitch) {
+            toggleSwitch.addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    document.body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
